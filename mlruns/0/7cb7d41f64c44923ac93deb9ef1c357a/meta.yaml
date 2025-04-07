@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/0/7cb7d41f64c44923ac93deb9ef1c357a/artifacts
+end_time: 1743993217076
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7cb7d41f64c44923ac93deb9ef1c357a
+run_name: unique-mole-61
+run_uuid: 7cb7d41f64c44923ac93deb9ef1c357a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743993205650
+status: 3
+tags: []
+user_id: root
