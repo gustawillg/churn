@@ -36,10 +36,12 @@ def train_and_evaluate(X, y):
     mlflow.log_param("random_state", 42)
     mlflow.log_metric("accuracy", acc)
 
-    input_example = pd.DataFrame([X_test.iloc[0]])
+    joblib.dump(model, "modelo_churn.pkl")
+
+
+    input_example = pd.DataFrame([X_test.iloc[0]]).astype("float64")
     mlflow.sklearn.log_model(model, "model", input_example=input_example)
 
-    joblib.dump(model, "modelo_churn.pkl")
 
     return model
 
