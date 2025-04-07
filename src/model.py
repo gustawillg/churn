@@ -1,7 +1,7 @@
 import mlflow
 import mlflow.sklearn
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
 import joblib
 
@@ -11,7 +11,8 @@ def train_and_evaluate(X, y):
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(X_test) 
+    acc = accuracy_score(y_test, y_pred)  
     print("Relatório de Classificação:")
     print(classification_report(y_test, y_pred))
     print("Acurácia:", acc)
@@ -21,7 +22,8 @@ def train_and_evaluate(X, y):
     mlflow.log_metric("accuracy", acc)
 
     model_path = "modelo_churn.pkl"
-    joblib.dump(model, "modelo_churn.pkl")
-    mlflow.sklearn.load_model(model, "model")
+    joblib.dump(model, model_path)  
+
+    mlflow.sklearn.log_model(model, "model")
 
     return model
