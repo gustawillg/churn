@@ -1,0 +1,15 @@
+artifact_uri: file:///app/mlruns/0/4ae9e9e250304e599fa4b4f96b93fc6e/artifacts
+end_time: 1743993467641
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4ae9e9e250304e599fa4b4f96b93fc6e
+run_name: learned-penguin-783
+run_uuid: 4ae9e9e250304e599fa4b4f96b93fc6e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743993453612
+status: 3
+tags: []
+user_id: root
