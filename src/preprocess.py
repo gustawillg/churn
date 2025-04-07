@@ -2,13 +2,17 @@ from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 
 def preprocess_data(df: pd.DataFrame) -> tuple:
-    df = df.dropna()
+    df.columns = df.columns.str.strip()
+    df = df.dropna()  
+
+    if 'customerID' in df.columns:
+        df = df.drop('customerID', axis=1)
 
     le = LabelEncoder()
-    df['gender'] = le.fit_transform(df['gender'])
-    df['churn'] = le.fit_transform(df['churn'])
+    for col in df.select_dtypes(include='object').columns:
+        df[col] = le.fit_transform(df[col])
 
-    X = df.drop('churn', axis=1)
-    y = df['churn']
+    X = df.drop('Churn', axis=1)
+    y = df['Churn']
 
     return X, y
